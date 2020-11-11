@@ -14,22 +14,16 @@ defmodule Facade do
   defimpl IFacade, for: Facade do
 
     def start_server(content) do
-        result = ScheduleServer.read_sistem_config_file()
+      result = number ScheduleServer.read_sistem_config_file()
         |> ScheduleServer.read_sistem_config_file()
         |> ScheduleServer.init()
         |> ScheduleServer.initialize_context()
     end
-    """
-    result = list
-      |> Stream.map(double)
-      |> Stream.map(triple)
-      |> Stream.filter(filter)
-      |> Enum.map(fn x -> x end)
-    """
 
-
-    #def stop_server(content), do: ScheduleServer.destroy()
-      #def stop_server(content), do: ScheduleServer.shutdown()
+    def stop_server(content) do
+      result = boolean ScheduleServer.destroy()
+       |> ScheduleServer.shutdown()    
+    end
 
   end
 end
