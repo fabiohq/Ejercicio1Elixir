@@ -1,29 +1,25 @@
 defmodule Facade do
-  defstruct [:content]
-
 
   defprotocol IFacade do
     @fallback_to_any true
-    def read_sistem_config_file(number)
-    def init(cadena)
-    def initialize_context(boolean)
-    def destroy(boolean)
-    def shutdown(dato)
+    def start_server(content,number)
+    def stop_server(content,boolean)
   end
 
   defimpl IFacade, for: Facade do
 
-    def start_server(content) do
-      result = number ScheduleServer.read_sistem_config_file()
-        |> ScheduleServer.read_sistem_config_file()
-        |> ScheduleServer.init()
-        |> ScheduleServer.initialize_context()
+    def start_server(content,number) do
+      result = number |> content.read_sistem_config_file()
+        |> content.read_sistem_config_file()
+        |> content.init()
+        |> content.initialize_context()
+        result
     end
 
-    def stop_server(content) do
-      result = boolean ScheduleServer.destroy()
-       |> ScheduleServer.shutdown()    
+    def stop_server(content,boolean) do
+      result = boolean |> content.destroy()
+      |> content.shutdown()
+      result
     end
-
   end
 end

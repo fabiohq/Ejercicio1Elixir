@@ -76,7 +76,4 @@ defmodule ScheduleServerTest do
     test "shutdown valida parametro" do
         assert ScheduleServer.shutdown(false) == :ok
     end 
-
-    
-
   end

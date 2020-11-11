@@ -1,5 +1,6 @@
 defmodule ScheduleServer do
-
+    defstruct [:content]
+    
     def read_sistem_config_file(number) do
         IO.puts("Reading system config file...")
         try do  
@@ -23,6 +24,7 @@ defmodule ScheduleServer do
       end        
   end
 
+  #Como se puede capturar errores lanzados 
   def initialize_context(boolean) when is_boolean(boolean) do
 
       if boolean do
@@ -36,7 +38,7 @@ defmodule ScheduleServer do
   def destroy(boolean) do
     
     case boolean do
-        :true -> :ok
+        true -> :ok
         _ -> :error
     end 
       
